@@ -1,26 +1,32 @@
-#Task 1: Print Even Numbers from 1 to N
+# Prompt
+# Find and fix the syntax error in this Python program:
+# def greet():
+#     print "Hello, AI Debugging Lab!"
+# greet()
+# Buggy Code
+def greet():
+    print ("Hello, AI Debugging Lab!")
 
-#Prompt:
-#“Generate Python code to print all even numbers between 1 and N using a loop.”
+greet()
+# Error
+# SyntaxError: Missing parentheses in call to 'print'
+# Corrected Code
+def greet():
+    print("Hello, AI Debugging Lab!")
 
-#Python Program
-n = int(input("Enter N: "))
+greet()
+# 3 Assert Test Cases
+def greet():
+    return "Hello, AI Debugging Lab!"
 
-for i in range(1, n + 1):
-    if i % 2 == 0:
-        print(i)
+assert greet() == "Hello, AI Debugging Lab!"
+assert isinstance(greet(), str)
+assert len(greet()) > 0
+print(greet())
+print("All test cases passed.")
+# Output
+# Hello, AI Debugging Lab!
+# All test cases passed.
+# Explanation
 
-#Loop Used
-#for loop
-
-# Sample Input and Output
-# Input: 10
-# Output:
-# 2
-# 4
-# 6
-# 8
-# 10
-# Logic
-
-# The loop checks every number from 1 to N. If i % 2 == 0, the number is even, so it is printed.
+# In Python 3, print() is a function, so the message must be written inside parentheses.

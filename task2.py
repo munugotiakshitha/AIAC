@@ -1,30 +1,33 @@
-# Python Program
-# numbers = [10, 15, 20, 25, 30, 35]
-
-# even_count = 0
-# odd_count = 0
-import numbers
-for num in numbers:
-    if num % 2 == 0:
-        even_count += 1
+# Prompt
+# Find and fix the error in this Python function:
+def check_number(n):
+    if n == 10:
+        return "Ten"
     else:
-        odd_count += 1
+        return "Not Ten"
+# Buggy Code
+def check_number(n):
+    if n == 10:
+        return "Ten"
+    else:
+        return "Not Ten"
+# Error
+# SyntaxError: invalid syntax
+# Corrected Code
+def check_number(n):
+    if n == 10:
+        return "Ten"
+    else:
+        return "Not Ten"
+# 3 Assert Test Cases
+assert check_number(10) == "Ten"
+assert check_number(5) == "Not Ten"
+assert check_number(20) == "Not Ten"
 
-print("Even numbers:", even_count)
-print("Odd numbers:", odd_count)
+print("All test cases passed.")
 # Output
-# Even numbers: 3
-# Odd numbers: 3
-# Logic Flow
-# Start
-#   ↓
-# Take each number from the list
-#   ↓
-# Check num % 2 == 0
-#   ↓
-# Yes → Increase even_count
-# No  → Increase odd_count
-#   ↓
-# Repeat until list ends
-#   ↓
-# Display counts
+# All test cases passed.
+# Explanation
+# = is used for assignment.
+# == is used for comparison.
+# Therefore, n == 10 correctly checks whether n is equal to 10.

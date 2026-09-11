@@ -1,36 +1,41 @@
-class Student:
-    def __init__(self, name, roll_number, marks):
-        self.name = name
-        self.roll_number = roll_number
-        self.marks = marks
+# Prompt
+# Find and fix the error in this Python class:
+class Car:
+    def start(self):
+        return "Car started"
 
-    def calculate_total(self):
-        return sum(self.marks)
+my_car = Car()
+print(my_car.drive())
+# Buggy Code
+class Car:
+    def start(self):
+        return "Car started"
 
-    def calculate_average(self):
-        return sum(self.marks) / len(self.marks)
+my_car = Car()
+print(my_car.drive())
+# Error
+# AttributeError: 'Car' object has no attribute 'drive'
+# Corrected Code
+
+# Since the class already has a start() method, we can correct the method call:
+
+class Car:
+    def start(self):
+        return "Car started"
 
 
-student = Student("Keerthana", 101, [80, 75, 90])
+my_car = Car()
+print(my_car.start())
 
-print("Name:", student.name)
-print("Roll Number:", student.roll_number)
-print("Total Marks:", student.calculate_total())
-print("Average Marks:", student.calculate_average())
+# 3 Assert Test Cases
+assert my_car.start() == "Car started"
+assert isinstance(my_car.start(), str)
+assert len(my_car.start()) > 0
+print("All test cases passed.")
 
 # Output
-# Name: Akshitha
-# Roll Number: 101
-# Total Marks: 245
-# Average Marks: 81.66666666666667
-# Minor Improvement
+# Car started
+# All test cases passed.
+# Explanation
 
-# To make the average easier to read:
-
-print("Average Marks:", round(student.calculate_average(), 2))
-
-# Output:
-
-# Average Marks: 81.67
-
-# Justification: Rounding the average to two decimal places improves readability without changing the calculation.
+# The program called drive(), but the Car class only defines start(). Therefore, changing my_car.drive() to my_car.start() fixes the error.

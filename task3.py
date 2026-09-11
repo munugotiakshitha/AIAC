@@ -1,43 +1,40 @@
-class User:
-    def __init__(self, age, email):
-        self.age = age
-        self.email = email
+# Prompt
+# Fix this Python program so that it safely handles a missing file:
+def read_file(filename):
+    with open(filename, 'r') as f:
+        return f.read()
 
-    def validate(self):
-        if self.age >= 18:
-            age_valid = True
-        else:
-            age_valid = False
+print(read_file("nonexistent.txt"))
+# Corrected Code
+def read_file(filename):
+    try:
+        with open(filename, "r") as f:
+            return f.read()
+    except FileNotFoundError:
+        return "Error: File not found."
+    except OSError:
+        return "Error: Invalid file path."
 
-        if "@" in self.email and "." in self.email:
-            email_valid = True
-        else:
-            email_valid = False
 
-        return age_valid, email_valid
+print(read_file("nonexistent.txt"))
+# # Output for Missing File
+# Error: File not found.
+# 3 Test Scenarios
 
-user = User(20, "student@example.com")
+# 1. File exists
 
-age_valid, email_valid = user.validate()
+# Input: test.txt
+# Output: Contents of the file
 
-print("Age valid:", age_valid)
-print("Email valid:", email_valid)
+# 2. File is missing
 
-# Output
-# Age valid: True
-# Email valid: True
+# Input: nonexistent.txt
+# Output: Error: File not found.
 
-# Invalid Test Case
-user = User(16, "studentexample.com")
-age_valid, email_valid = user.validate()
-print("Age valid:", age_valid)
-print("Email valid:", email_valid)
+# 3. Invalid path
 
-# Output
-# Age valid: False
-# Email valid: False
-# Logic
-# Age 18 or above → valid.
-# Age below 18 → invalid.
-# Email containing @ and . → valid.
-# Otherwise → invalid.
+# Input: invalid/path/test.txt
+# Output: Error: Invalid file path.
+# Explanation
+
+# try-except prevents the program from crashing. FileNotFoundError handles a missing file, while OSError handles other file/path-related errors.
