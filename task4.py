@@ -1,7 +1,36 @@
-# Task 4: Ethical Scoring System
-def evaluate_employee(project_completion_rate, teamwork_score, attendance_rate):
-    # Weights: 40% Projects, 20% Teamwork, 40% Attendance
-    score = (project_completion_rate * 0.4) + (teamwork_score * 0.2) + (attendance_rate * 0.4)
-    return score
-# Ethical Analysis:
-# The scoring logic above contains unethical weighting. Weighting attendance_rate at 40% is highly problematic as it severely disadvantages employees with chronic illnesses, disabilities, or sudden caregiving responsibilities. Additionally, teamwork_score is subjective and prone to reviewer bias. A more balanced criteria would heavily weight objective outcomes (project_completion_rate) while dynamically adjusting or exempting attendance_rate to account for legally protected medical or family leaves.
+class Student:
+    def __init__(self, name, roll_number, marks):
+        self.name = name
+        self.roll_number = roll_number
+        self.marks = marks
+
+    def calculate_total(self):
+        return sum(self.marks)
+
+    def calculate_average(self):
+        return sum(self.marks) / len(self.marks)
+
+
+student = Student("Keerthana", 101, [80, 75, 90])
+
+print("Name:", student.name)
+print("Roll Number:", student.roll_number)
+print("Total Marks:", student.calculate_total())
+print("Average Marks:", student.calculate_average())
+
+# Output
+# Name: Akshitha
+# Roll Number: 101
+# Total Marks: 245
+# Average Marks: 81.66666666666667
+# Minor Improvement
+
+# To make the average easier to read:
+
+print("Average Marks:", round(student.calculate_average(), 2))
+
+# Output:
+
+# Average Marks: 81.67
+
+# Justification: Rounding the average to two decimal places improves readability without changing the calculation.
